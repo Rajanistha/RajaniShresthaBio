@@ -1,0 +1,98 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css";
+*{
+  margin:20px;
+  padding:0;
+}
+body{
+  background-color: rgb(176,196,222);
+}
+.warpper{
+  margin: 0 auto;
+  width: 1000px;
+  background:rgb(95,158,160);/*cadetblue*/
+}
+.column{
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+profilehead div:nth-child(even){
+  display: block;
+  line-height: 100px;
+
+}
+.profilehead{
+  /*background-color: black;*/
+}
+.mypic{
+  width:150px ;
+  height:217px;
+  float:left;
+
+}
+.maintext{
+
+}
+h1{
+  font-family: arial;
+  font-size: 30px;
+  font-weight: 100;
+  text-align: center;
+}
+h2{
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style:italic;
+  font-weight: 100;
+  text-align:center;
+}
+
+ nav{
+   width: auto;
+   height: auto;
+   text-align: center;
+   background-color: #4682B4;
+ }
+ ul{
+
+ }
+  ul li{
+    list-style: none;
+    display: inline-block;
+    /*line-height: 100px;*/
+  }
+  ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: arial;
+    color: #1e1e1e;
+    /*padding: 0 20px;*/
+  }
+  ul li a:hover{
+    color: rgb(176,224,250);
+  }
+  .education{
+
+  }
+
+  h3{
+    margin: 0 auto;
+    padding: 0px 30px;
+    font-family: arial;
+    font-size: 20px;
+    text-align: left;
+    /*font-weight: 100;*/
+  }
+
+  @meadia only screen and (min-width:768 px){
+    .warpper{
+      margin: 0 auto;
+      width: 700 px;
+      background:rgb(95,158,160);/*cadetblue*/
+    }
+  }

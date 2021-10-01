@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ASSIGNMENT 1 PART 2</title>
+    <style>
+      span {
+        color :red;
+        padding: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script type="text/javascript">
+    /*delete onclick*/
+      var myNodelist = document.getElementsByTagName("LI");
+      var i;
+      for (i = 0; i < myNodelist.length; i++) {
+        var span = document.createElement("SPAN");
+        var txt = document.createTextNode("\u00D7");
+        span.className = "close";
+        span.appendChild(txt);
+        myNodelist[i].appendChild(span)
+      }
+    /*click to close */
+      var close = document.getElementsByClassName("close");
+      var i;
+      for (i = 0; i < close.length; i++) {
+      close[i].onclick = function() {
+        var div = this.parentElement;
+        div.style.display = "none";
+      }
+    }
+    //Add countries
+    function newElement() {
+      var li = document.createElement("li");
+      var countryName = document.getElementById("myInput").value;
+      var name = document.createTextNode(countryName);
+      li.appendChild(name);
+      if (countryName === '') {
+       alert("You must write a country Name!");
+      } else {
+        document.getElementById("myUL").appendChild(li);
+      }
+      document.getElementById("myInput").value = " ";
+
+      var span = document.createElement("SPAN");
+      var txt = document.createTextNode("\u00D7");
+      span.className = "close";
+      span.appendChild(txt);
+      li.appendChild(span);
+
+
+      for (i = 0; i < close.length; i++) {
+        close[i].onclick = function() {
+          var div = this.parentElement;
+          div.style.display = "none";
+        }
+      }
+
+    }
+    // to save input in local storage
+    function functionName() {
+       var ul = document.getElementById("myUL");
+       var cName = ul.getElementsByTagName("LI");
+       for(i = 0; i< cName.length;i++){
+         //if add button is clicked
+         localStorage.setItem("cName[i]","cName.value");
+       }
+      functionName();
+    }
+    //ADD AND SAVE IN LOCALSTORAGE
+    function save(){
+      newElement();
+      functionName();
+    }
+    //search step 4
+    function searchFor(cName, searchWord){
+        if(cName.toLowerCase().startsWith(searchWord.toLowerCase())){
+          return true;
+        }
+        return false;
+    }
+    function search(myarray,searchWord){
+      var word = document.getElementById("searchWord").value;
+      var temoArray = [];
+      for(i=0;i<myarray.length();i++){
+        if(searchFor(myarray[i], searchWord)){
+          array.push(myarray[i]);
+        }
+      }
+      return tempArray;
+    }
+
+    function searchMenu(list){
+      var input, filter, ul, li, a, i;
+      input = document.getElementById("mySearch");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("list");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        if (a.innerHTML.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
+      }
+    }
+
+  </script>
+
+  </body>
+
+  <div id="myDIV" class="header">
+    <h2>Country</h2>
+    <p>Write country name and click add</p>
+    <input type="text" id="myInput" placeholder="Country" required>
+    <span onclick="newElement()" class="addBtn"> Add </span>
+    <br>
+    <input type="text" id="search" onkeyup="searchMenu()" placeholder="Search">
+    <!--
+    <span onclick="save" class="addBtn"> ADD </span>
+    I have made few functions which is suppose to work according to given assignemt
+    but these functions does not seems to worl in the webpage.
+    -->
+
+
+  </div>
+  <ul id="myUL"> </ul>
+
+</html>
